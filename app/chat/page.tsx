@@ -7,7 +7,8 @@ export default function ChatPage() {
   const [response, setResponse] = useState("");
 
   const askAI = async () => {
-    setResponse(`Marketing Recommendation for:
+    setResponse(
+      `Marketing Recommendation for:
 
 ${question}
 
@@ -19,12 +20,13 @@ SEO:
 Content:
 - Publish 3 blogs weekly
 - Create LinkedIn content
-- Repurpose into Instagram posts`);
+- Repurpose into Instagram posts`
+    );
   };
 
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-4xl font-bold mb-6">
+      <h1 className="text-3xl font-bold mb-6">
         AI Marketing Assistant
       </h1>
 
