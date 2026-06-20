@@ -6,9 +6,8 @@ export default function ChatPage() {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
 
-  const askAI = () => {
-    setResponse(`
-Marketing Recommendation for:
+  const askAI = async () => {
+    setResponse(`Marketing Recommendation for:
 
 ${question}
 
@@ -20,21 +19,11 @@ SEO:
 Content:
 - Publish 3 blogs weekly
 - Create LinkedIn content
-- Repurpose into Instagram posts
-
-Ads:
-- Start with Google Search Ads
-- Retarget website visitors
-
-CRM:
-- Send welcome email series
-- Create abandoned cart campaigns
-`);
+- Repurpose into Instagram posts`);
   };
 
   return (
-    <main className="min-h-screen bg-black text-white p-8">
-
+    <main className="min-h-screen p-8">
       <h1 className="text-4xl font-bold mb-6">
         AI Marketing Assistant
       </h1>
@@ -42,23 +31,22 @@ CRM:
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Ask anything about SEO, Ads, CRM, Analytics..."
-        className="w-full h-40 bg-zinc-900 p-4 rounded-lg mb-4"
+        placeholder="Ask about SEO, Google Ads, CRM..."
+        className="border p-2 w-full"
       />
 
       <button
         onClick={askAI}
-        className="bg-purple-600 px-6 py-3 rounded-lg"
+        className="mt-4 px-4 py-2 border"
       >
         Ask AI
       </button>
 
       {response && (
-        <pre className="mt-6 bg-zinc-900 p-4 rounded-lg whitespace-pre-wrap">
+        <div className="mt-6 whitespace-pre-wrap">
           {response}
-        </pre>
+        </div>
       )}
-
     </main>
   );
 }
